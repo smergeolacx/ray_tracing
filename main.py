@@ -1,23 +1,26 @@
 import pygame
-from pygame import quit
 from sys import exit
-from obstacle import Obstacle
-from settings import *
-
-screen = pygame.display.set_mode((screenX,screenY))
+from ray import Ray
+from wall import Wall
+from math import sin, cos, pi
 
 pygame.init()
 clock = pygame.time.Clock()
+height, width = 800, 800
+screen = pygame.display.set_mode((width, height))
 
-rect = Obstacle(30,30,100,100,screen)
+raycast = Ray(200, 400, screen)
+obstacle = Wall(600, 200, 600, 600, screen)
 
 while True:
-    clock.tick(60)
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
+            pygame.quit()
             exit()
-            quit()
 
-
-
+    screen.fill("black")
+    raycast.show()
+    # raycast.point(pygame.mouse.get_pos())
+    obstacle.show()
+    clock.tick(60)
     pygame.display.flip()
