@@ -1,8 +1,6 @@
-import math
 from math import pi, cos, sin
 import pygame
 from pygame.math import Vector2
-from math import sqrt
 
 
 class Ray:
