@@ -14,7 +14,6 @@ screen = pygame.display.set_mode((width, height))
 
 ray_cast = Ray(200, 400, screen)
 obstacle = Wall(600, 200, 600, 600, screen)
-ray_part = Particle(screen, obstacle)
 
 while True:
     keys = pygame.key.get_pressed()
@@ -25,7 +24,7 @@ while True:
 
 
     screen.fill("black")
-
+    ray_part = Particle(screen, obstacle, pygame.mouse.get_pos())
 
     # pygame.draw.circle(screen,"white",pos,2)
     # pygame.draw.line(screen,"white",wall_start,wall_end)

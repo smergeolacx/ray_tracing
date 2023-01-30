@@ -15,7 +15,7 @@ class Ray:
         x, y = cos(self.angle), sin(self.angle)
         self.dir.x = x
         self.dir.y = y
-        pygame.draw.line(self.screen, "white", self.pos, self.pos+self.dir*100)
+        pygame.draw.line(self.screen, "white", self.pos, self.pos+self.dir*10)
     def cast(self,obstacle):
         x1 = obstacle.a.x
         y1 = obstacle.a.y
@@ -35,4 +35,6 @@ class Ray:
                 # print(True)
                 self.pt.x = x1 + t * (x2 - x1)
                 self.pt.y = y1 + t * (y2 - y1)
-                # pygame.draw.circle(self.screen,"white",(self.pt.x,self.pt.y),10)
+                return self.pt
+            else:
+                return None
